@@ -1,0 +1,64 @@
+\\documentclass{article}
+\\usepackage{amsmath}
+\\usepackage{algorithm}
+\\usepackage[noend]{algpseudocode}
+\\usepackage{amsfonts} % For R^2
+
+\\newcommand{\\algorithminput}[1]{\\State \\textbf{Input:} #1}
+\\newcommand{\\algorithmoutput}[1]{\\State \\textbf{Output:} #1}
+\\newcommand{\\floor}[1]{\\lfloor #1 \\rfloor}
+\\newcommand{\\ceil}[1]{\\lceil #1 \\rceil}
+
+\\begin{document}
+
+\\begin{algorithm}
+\\caption{ref\\_target\\_mapping}
+\\begin{algorithmic}[1]
+\\State \\textbf{Inputs:}
+\\State $G = (V, E)$: directed graph of heads, edge weight $\\in \\mathbb{R}^2$
+\\State $N$: minimum refs each target must keep ($\\ge 1$)
+\\State $f$: desired fraction of heads to treat as targets (default = 0.5)
+\\State $M_{max}$: optional cap on refs per target (None $\\rightarrow$ no cap)
+
+\\Statex \\textbf{Choose an $\\mathbb{R}^2$ threshold by binary search}
+\\State Initialise $low = 0, high = 1$.
+\\State Repeat $\\le 30$ iterations:
+    \\State $Th \\leftarrow (low + high)/2$.
+    \\State Drop all edges with weight $< Th$ to get $G_{Th}$.
+    \\State Count heads whose in-degree $\\ge N$; let this be $t(Th)$.
+    \\If{$t(Th) \\approx f \\cdot |V|$ (within $\\pm 1$ head)}
+        \\State stop and keep $Th$.
+    \\Else
+        \\State raise $Th$ if $t(Th)$ is too large, lower it if too small.
+    \\EndIf
+\\State Result: graph $G^*$ pruned at the best threshold $Th^*$.
+
+\\Statex \\textbf{Select target heads (T) with a greedy, layer-aware pass}
+\\State Candidate set $C = \\text{heads in } G^* \\text{ whose in-degree } \\ge N$.
+\\State Initialise $T = \\emptyset$.
+\\While{$|T| < f \\cdot |V|$ and $C \\setminus T \\text{ not empty}$}
+    \\For{each candidate $c \\in C \\setminus T$}
+        \\State verify $c$ itself has $\\ge N$ predecessors not already in $T$.
+        \\State Ensure adding $c$ would not drop any current target below $N$ refs.
+    \\EndFor
+    \\State Score each valid $c$ as (layer($c$), successors-in-$T$($c$)).
+    \\State Prefer higher layers first, break ties by fewer successors in $T$.
+    \\State Add the best-scoring $c$ to $T$.
+\\EndWhile
+
+\\Statex \\textbf{Define reference heads (R)}
+\\State $R = \\text{all heads with out-degree} > 0 \\text{ that are not in } T$.
+
+\\Statex \\textbf{Assign refs to each target}
+\\For{each $t \\in T$}
+    \\State let $pred(t)$ be its predecessors not in $T$.
+\\EndFor
+
+\\Statex \\textbf{Outputs:}
+\\State Mapping $\{t: \\text{ref_list}\}$ for every target $t \\in T$
+\\State Final sets $T$ (targets) and $R$ (references)
+\\State Chosen threshold $Th^*$
+\\end{algorithmic}
+\\end{algorithm}
+
+\\end{document}

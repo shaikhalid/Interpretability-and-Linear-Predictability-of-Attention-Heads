@@ -31,29 +31,29 @@ python tests/test_kv_prediction.py
 ## Reproduce the results
 
 ### Table 1 (Main Results)
-- **Llama3 8B**: Run `./neurips_experiments/table1/llama3.sh` to reproduce the Llama3 8B results in Table 1. Tested ✅
+- **Llama3 8B**: Run `./paper_experiments/table1/llama3.sh` to reproduce the Llama3 8B results in Table 1. Tested ✅
 
 ### Figure 1
-- **Middle Figure**: Run `./neurips_experiments/figure1/middle_figure.sh` to reproduce the middle panel of Figure 1. Tested ✅
+- **Middle Figure**: Run `./paper_experiments/figure1/middle_figure.sh` to reproduce the middle panel of Figure 1. Tested ✅
 - **Right Figure**: TO-DO 
 
-- **Falcon3 10B**: Run `./neurips_experiments/table1/falcon3.sh` to reproduce the Falcon3 10B results in Table 1. Tested ✅
+- **Falcon3 10B**: Run `./paper_experiments/table1/falcon3.sh` to reproduce the Falcon3 10B results in Table 1. Tested ✅
 
-- **Qwen3 32B**: Run `./neurips_experiments/table1/qwen3.sh` to reproduce the Qwen3 32B results in Table 1. Tested ✅
+- **Qwen3 32B**: Run `./paper_experiments/table1/qwen3.sh` to reproduce the Qwen3 32B results in Table 1. Tested ✅
 
 ### Figure 2
-- **Left Figure**: Run `./neurips_experiments/figure2/left_figure.sh` to reproduce the left panel of Figure 2.  Tested ✅
+- **Left Figure**: Run `./paper_experiments/figure2/left_figure.sh` to reproduce the left panel of Figure 2.  Tested ✅
 
-- **Middle Figure**: Run `./neurips_experiments/figure2/middle_figure.sh` to reproduce the middle panel of Figure 2.  Tested ✅
+- **Middle Figure**: Run `./paper_experiments/figure2/middle_figure.sh` to reproduce the middle panel of Figure 2.  Tested ✅
 
-- **Middle Figure**: Run `./neurips_experiments/figure2/right_figure.sh` to reproduce the middle panel of Figure 2.  Tested ✅
+- **Middle Figure**: Run `./paper_experiments/figure2/right_figure.sh` to reproduce the middle panel of Figure 2.  Tested ✅
 
 
 ### Figure 3
-- **Left and Right Figure**: Run `./neurips_experiments/figure3/left_figure.sh` to reproduce both the panels of Figure 3.  Tested ✅
+- **Left and Right Figure**: Run `./paper_experiments/figure3/left_figure.sh` to reproduce both the panels of Figure 3.  Tested ✅
 
 ### Figure 4
-- **Left Figure**: Run `./neurips_experiments/figure4/left_figure.sh` to reproduce the left panel of Figure 2.  Tested ✅
+- **Left Figure**: Run `./paper_experiments/figure4/left_figure.sh` to reproduce the left panel of Figure 2.  Tested ✅
 
 
 

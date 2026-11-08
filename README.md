@@ -1,11 +1,12 @@
 # Interpretability and Linear Predictability of Attention Heads
 
+[Arxiv Link](https://arxiv.org/pdf/2603.13314v1)
+
 This project investigates the relationships among attention heads in Large Language Models (LLMs) to improve their efficiency and performance. Our key findings reveal that individual attention heads can be accurately approximated using linear projections of other heads - a property that emerges during pretraining despite not being explicitly designed into the Transformer architecture.
 
 Building on this insight, we introduce a novel method for compressing the KV cache that utilizes these projections to reduce storage requirements, achieving up to 2× compression on various models with marginal performance loss. We validate this compression technique across diverse tasks including mathematics, coding, and general knowledge (MMLU).
 
 Our work uncovers a significant structural property of attention mechanisms and demonstrates its practical utility for efficient LLM inference.
-
 
 ![Image](images/method.png)
 
